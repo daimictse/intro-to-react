@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First React App</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+    <script type="text/babel">
+       class MyFav extends React.Component {
+         constructor(props) {
+           super(props);
+           this.state = {
+             favItems: [{favItem:"dark chocolates"},
+                        {favItem: "green tea"},
+                        {favItem: "puppies"},
+                        {favItem: "travelling"},
+                        {favItem: "coding"}]
+          };
+         }
+         render() {
+           return (
+             <div>
+               <h1>Here are my favorites:</h1>
+               <ul>
+                  {
+                    this.state.favItems.map((val,index) => {
+                      return <li key={index}> {val.favItem}</li>
+                    })
+                  }
+               </ul>
+             </div>
+           );
+         }
+       }
+
+       ReactDOM.render(
+         <MyFav />, document.getElementById('app')
+       );
+    </script>
+  </body>
+</html>
